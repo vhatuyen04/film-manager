@@ -1,0 +1,57 @@
+{% extends 'LifeStyleMag-1.0.0/base.html' %}
+
+{% block content %}
+<div class="fixed-bottom container mb-3 d-flex justify-content-center">
+  <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <span class="page-link">Previous</span>
+        </li>
+        <li class="page-item active" aria-current="page">
+          <span class="page-link">1</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+  </nav>
+</div>
+<ul class="video-grid">
+    <li id="local-video">
+      <video controls>
+      <source src=”http://techslides.com/demos/sample-videos/small.ogv” type=video/ogg>
+      <source src="static/videos/hahaha.mp4" type=video/mp4>
+      </video>
+    </li>
+    
+    <li id = "youtube-video1">
+      <iframe src="https://www.youtube.com/embed/XhW_ZsFZZIk" frameborder="0" allowfullscreen></iframe>
+    </li>
+
+    <li id = "youtube-video2">
+      <iframe src="https://www.youtube.com/embed/WQthTixHA5c" frameborder="0" allowfullscreen></iframe>
+    </li>
+    
+    <li id = "youtube-video3">
+      <iframe src="https://www.youtube.com/embed/zkI0LRK-vEU" frameborder="0" allowfullscreen></iframe>
+    </li>
+
+    <li id = "youtube-video4">
+      <iframe src="https://www.youtube.com/embed/pM3CFiZOU4k" frameborder="0" allowfullscreen></iframe>
+    </li>
+
+    <li id = "youtube-video5">
+      <iframe src="https://www.youtube.com/embed/sEJKG60a1Zc" frameborder="0" allowfullscreen></iframe>
+    </li>
+
+    <li id = "youtube-video6">
+      <iframe src="https://www.youtube.com/embed/TAMyLwW9HW8" frameborder="0" allowfullscreen></iframe>
+    </li>
+
+    <li id = "youtube-video7">
+      <iframe src="https://www.youtube.com/embed/YnkgjKI3tR0" frameborder="0" allowfullscreen></iframe>
+    </li>
+</ul>
+{% endblock %}
