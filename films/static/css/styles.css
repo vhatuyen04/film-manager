@@ -9,7 +9,7 @@
     position: relative
 }
 
-#local-video video {
+#video0 video {
     width: 320px;
     height: 305px;
     position: absolute;
@@ -17,7 +17,7 @@
     left: 10px;
 }
 
-#youtube-video1 iframe {
+#video1 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -25,7 +25,7 @@
     left: 360px;
 }
 
-#youtube-video2 iframe {
+#video2 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -33,7 +33,7 @@
     left: 710px;
 }
 
-#youtube-video3 iframe {
+#video3 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -41,7 +41,7 @@
     left: 1060px;
 }
 
-#youtube-video4 iframe {
+#video4 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -49,7 +49,7 @@
     left: 10px;
 }
 
-#youtube-video5 iframe {
+#video5 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -57,7 +57,7 @@
     left: 360px;
 }
 
-#youtube-video6 iframe {
+#video6 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -65,7 +65,7 @@
     left: 710px;
 }
 
-#youtube-video7 iframe {
+#video7 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
