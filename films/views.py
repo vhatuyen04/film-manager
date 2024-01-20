@@ -25,6 +25,20 @@ def my_view(request):
         "https://www.youtube.com/embed/sEJKG60a1Zc",
         "https://www.youtube.com/embed/YnkgjKI3tR0",
         "https://www.youtube.com/embed/ph2Yw7yeeCw",
+         "static/videos/hahaha.mp4",
+        "https://www.youtube.com/embed/7xnz43e0ahA",
+        "static/videos/hahaha.mp4",
+        "static/videos/hahaha.mp4",
+        "static/videos/hahaha.mp4",
+        "static/videos/hahaha.mp4",
+        "static/videos/hahaha.mp4",
+        "static/videos/hahaha.mp4",
+        "static/videos/hahaha.mp4",
+        "static/videos/hahaha.mp4",
+        "static/videos/hahaha.mp4",
+        "static/videos/hahaha.mp4",
+        "static/videos/hahaha.mp4",
+        "https://www.youtube.com/embed/Xg3FFi2hLyY&t=2s",
         # Add more URLs as needed
     ]
 
@@ -39,45 +53,10 @@ def my_view(request):
         url_data = paginator.page(1)
     except EmptyPage:
         url_data = paginator.page(paginator.num_pages)
-     # Preprocess the list with unique identifiers
-    # url_data = [{'url': link, 'id': f'video{index}'} for index, link in enumerate(url_links)]
-
 
     context = {
         'url_data': url_data,
-        'url_links': url_links,
+        'url_links': url_links[items_per_page * (int(page) - 1): items_per_page * int(page)],
     }
 
     return render(request, 'LifeStyleMag-1.0.0/page1.html', context)
-
-#def article_list(request):
-    #articles = Article.object.all().order_by('-pub_date')
-    #return render(request, 'LifeStyleMag-1.0.0/article_list.html', {'articles': articles})
-
-def article_list(request):
-    # Fetch articles or adjust this query based on your models
-    articles = Article.objects.all()
-
-    # Paginate the articles
-    paginator = Paginator(articles, 10)  # 10 articles per page
-    page_number = request.GET.get('page', 1)
-    page = paginator.get_page(page_number)
-    total_pages = paginator.num_pages
-
-    return render(request, 'LifeStyleMag-1.0.0/article_list.html', {'articles': page, 'page_number': page_number, 'total_pages': total_pages})
-
-def page2(request):
-    url_links = [
-        "https://www.youtube.com/embed/ph2Yw7yeeCw",
-        # Add more URLs as needed
-    ]
-
-     # Preprocess the list with unique identifiers
-    url_data = [{'url': link, 'id': f'video{index}'} for index, link in enumerate(url_links)]
-
-
-    context = {
-        'url_data': url_data,
-    }
-
-    return render(request, 'LifeStyleMag-1.0.0/page2.html', context)

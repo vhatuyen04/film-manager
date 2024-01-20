@@ -9,7 +9,7 @@
     position: relative
 }
 
-#video0 video {
+#local0 video {
     width: 320px;
     height: 305px;
     position: absolute;
@@ -17,7 +17,72 @@
     left: 10px;
 }
 
-#video1 iframe {
+#local1 video {
+    width: 320px;
+    height: 305px;
+    position: absolute;
+    top: -45px;
+    left: 360px;
+}
+
+#local2 video {
+    width: 320px;
+    height: 305px;
+    position: absolute;
+    top: -45px;
+    left: 710px;
+}
+
+#local3 video {
+    width: 320px;
+    height: 305px;
+    position: absolute;
+    top: -45px;
+    left: 1070px;
+}
+
+#local4 video {
+    width: 320px;
+    height: 305px;
+    position: absolute;
+    top: 235px;
+    left: 10px;
+}
+
+
+#local5 video {
+    width: 320px;
+    height: 305px;
+    position: absolute;
+    top: 235px;
+    left: 360px;
+}
+
+#local6 video {
+    width: 320px;
+    height: 305px;
+    position: absolute;
+    top: 235px;
+    left: 710px;
+}
+
+#local7 video {
+    width: 320px;
+    height: 305px;
+    position: absolute;
+    top: 235px;
+    left: 1070px;
+}
+
+#youtube0 iframe {
+    width: 320px;
+    height: 240px;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
+#youtube1 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -25,7 +90,7 @@
     left: 360px;
 }
 
-#video2 iframe {
+#youtube2 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -33,7 +98,7 @@
     left: 710px;
 }
 
-#video3 iframe {
+#youtube3 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -41,7 +106,7 @@
     left: 1060px;
 }
 
-#video4 iframe {
+#youtube4 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -49,7 +114,7 @@
     left: 10px;
 }
 
-#video5 iframe {
+#youtube5 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -57,7 +122,7 @@
     left: 360px;
 }
 
-#video6 iframe {
+#youtube6 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
@@ -65,7 +130,7 @@
     left: 710px;
 }
 
-#video7 iframe {
+#youtube7 iframe {
     width: 320px;
     height: 240px;
     position: absolute;
