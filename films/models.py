@@ -1,28 +1,41 @@
 from django.db import models
-
+from django.contrib.auth.models import AbstractBaseUser
+from django import forms
 # Create your models here.
 
-class Tag(models.Model):
-    name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.name
-    
-    class Meta: 
-        app_label = 'films'
-
-
 class Film(models.Model):
-    title = models.CharField(max_length = 100)
-    tags = models.ManyToManyField(Tag)
-    ordinal_number = models.IntegerField()
-    
-    def __str__ (self):
-        return self.title
-    
-class Article(models.Model):
-    title = models.CharField(max_length = 200)
-    content = models.TextField()
-    pub_date = models.DateTimeField(auto_now_add = True)
+    title = models.CharField(max_length = 255)
+    thumbnail = models.ImageField(upload_to='thumbnails/')
+    youtube_url = models.URLField(blank=True, null=True)
+    film_file = models.FileField(upload_to='films/', blank=True, null=True)
     def __str__(self):
         return self.title
+    def is_youtube(self):
+        return bool(self.youtube_url)
+    def is_local(self):
+        return bool(self.film_file)
+    
+class Admin(AbstractBaseUser):
+    username = models.CharField(max_length=150, unique=True)
+    password = models.CharField(max_length=128)
+
+    class Meta:
+        verbose_name = 'Admin'
+        verbose_name_plural = 'Admins'
+
+    USERNAME_FIELD = 'username'
+
+    # def __str__(self):
+    #     return self.username
+
+    def check_password(self, raw_password):
+        """
+        Check if the raw password matches the hashed password stored in the database.
+        """
+        return raw_password == self.password  # Implement your password comparison logic
+
+class AdminForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+    class Meta:
+        model = Admin
+        fields = ['username', 'password']  # Add any additional fields here

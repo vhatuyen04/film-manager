@@ -2,19 +2,17 @@
 
 {% block content %}
   <ul class="video-grid">
-    {% for url_link in url_links %}
-          {% if "youtube.com" in url_link %}
-              <li id="youtube{{ forloop.counter0 }}">
-                  <iframe src="{{ url_link }}" frameborder="0" allowfullscreen></iframe>
-              </li>
-          {% else %}
-              <li id="local{{ forloop.counter0 }}">
-                  <video controls>
-                      <source src="{{ url_link }}" type=video/mp4>
-                  </video>
-              </li>
-          {% endif %}
-      {% endfor %}
+    {% for film in films %}
+      <div class="col-md-3 mb-4">
+        <div class="card">
+            <img src="{{ film.thumbnail.url }}" class="card-img-top" alt="{{ film.title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ film.title }}</h5>
+              <a href="{% url 'film_detail' film.id %}" class="btn btn-primary">Watch Now</a>
+            </div>
+        </div>
+      </div>
+    {% endfor %}
   </ul>
   
   <div class="fixed-bottom container mb-3 d-flex justify-content-center">
