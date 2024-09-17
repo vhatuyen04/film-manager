@@ -18,9 +18,18 @@
                 {% endif %}
             </div>    
             <div>
-                <a href="{% url 'film_list' %}" class="btn btn-secondary">Back to List</a>
+                <a href="{% url 'home' %}" class="btn btn-secondary">Back to List</a>   
             </div>
         </div>
+    </div>
+
+    <div class = "container">
+        <h2>{{ film.title }}</h2>
+        <p><strong>Genre:</strong>
+            {% for genre in film.genres.all %}
+                {{ genre.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
     </div>
 
 {% endblock %}

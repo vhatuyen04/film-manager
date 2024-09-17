@@ -23,7 +23,7 @@ from films import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('films.urls')),
-    path('search/', views.film_list, name='index')
+    path('search/', views.home, name='index')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

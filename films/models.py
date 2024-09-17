@@ -3,11 +3,17 @@ from django.contrib.auth.models import AbstractBaseUser
 from django import forms
 # Create your models here.
 
+class Genre(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    def __str__(self):
+        return self.name
+
 class Film(models.Model):
     title = models.CharField(max_length = 255)
     thumbnail = models.ImageField(upload_to='thumbnails/')
     youtube_url = models.URLField(blank=True, null=True)
     film_file = models.FileField(upload_to='films/', blank=True, null=True)
+    genres = models.ManyToManyField(Genre, related_name='films')
     def __str__(self):
         return self.title
     def is_youtube(self):
@@ -38,4 +44,4 @@ class AdminForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = Admin
-        fields = ['username', 'password']  # Add any additional fields here
+        fields = ['username', 'password']  

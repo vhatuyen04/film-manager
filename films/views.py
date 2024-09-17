@@ -1,13 +1,12 @@
 from typing import Any
-from django.db.models import Q
+from django.db.models import Count, Q
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Film
 
 from django.contrib.auth.decorators import login_required, permission_required
-from .models import Admin
+from .models import Admin, Film, Genre
 
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
@@ -18,11 +17,15 @@ from .backend import CustomBackend, is_admin_user
 # Create your views here.
 
 def home(request):
-    return HttpResponse("Welcome to film website!")
-
-def film_list(request):
     query = request.GET.get('q')
+    genres = Genre.objects.all()
+    selected_genres = request.GET.getlist('genres')
     films = Film.objects.all().order_by('id')
+
+    if selected_genres:
+        # Annotate each film with the number of selected topics it contains
+        films = films.annotate(num_genres=Count('genres', filter=Q(genres__in=selected_genres))) \
+                     .filter(num_genres=len(selected_genres))
 
     if query:
         films = films.filter(Q(title__icontains=query))
@@ -45,12 +48,16 @@ def film_list(request):
         'films': films[items_per_page * (int(page) - 1): items_per_page * int(page)],
         'query' : query,
         'films_count' : films_count,
+        'genres' : genres,
+        'selected_genres' : selected_genres,
     }
     return render(request, 'film_list.html', context)
 
+
 def film_detail(request, id):
     film = get_object_or_404(Film, id=id)
-    return render(request, 'film_detail.html', {'film': film})
+    genres = Genre.objects.all()
+    return render(request, 'film_detail.html', {'film': film, 'genres': genres,})
 
 
 # def admin_login(request):
