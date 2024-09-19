@@ -1,3 +1,3 @@
 # film-manager
 
-This is a website to manage personal films
+This is a demo website to manage personal films
